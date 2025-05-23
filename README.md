@@ -1,2 +1,2 @@
 # nodejs-learning
-Learning Node JS in Deatails
+Learning Node JS in Details
