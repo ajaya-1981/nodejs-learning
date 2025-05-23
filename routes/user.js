@@ -6,7 +6,9 @@ const { handleGetAllUsers,
   handleGetUserById,
   handleUpdateUserById,
   handleDeleteUser,
-  handleCreateUser
+  handleCreateUser,
+  handleSignUpUser,
+  handleSignInUser,
 } = require('../controllers/user');
 // router.get('/users', async (req, res) => {
 //   const allDBUsers = await User.find({});
@@ -14,6 +16,14 @@ const { handleGetAllUsers,
 //   const html = `<ul> ${allDBUsers.map(user => `<li> ${user.firstName} </li>`).join("")}</ul>`;
 //   res.send(html);
 // })
+
+//sign Up
+
+
+router.post('/signup', handleSignUpUser);
+// router.get('/signin', handleSignInUser);
+
+
 router.get('/', handleGetAllUsers);
 // Create a user in file / db
 router.post('/', handleCreateUser);

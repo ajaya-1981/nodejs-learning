@@ -26,9 +26,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logReqRes("log.txt"));
 
 // routes
-app.use("/api/users", userRoutes);
+app.use("/user", userRoutes);
 app.use("/url", urlRoutes);
-
 app.use("/", staticRoutes);
 
 // app.get('/', async (req, res) => {
@@ -37,16 +36,16 @@ app.use("/", staticRoutes);
 // })
 
 
-app.get('/:shortId', async (req, res) => {
-  const shortId = req.params.shortId;
-  const entry = await URL.findOneAndUpdate({
-    shortId
-  }, {
-    $push: { visitHistory: { timestamp: Date.now() } }
-  })
-  console.log(entry.reDirectURL);
-  res.redirect(entry.reDirectURL);
-})
+// app.get('/:shortId', async (req, res) => {
+//   const shortId = req.params.shortId;
+//   const entry = await URL.findOneAndUpdate({
+//     shortId
+//   }, {
+//     $push: { visitHistory: { timestamp: Date.now() } }
+//   })
+//   console.log(entry.reDirectURL);
+//   res.redirect(entry.reDirectURL);
+// })
 
 
 app.listen(PORT, () => {

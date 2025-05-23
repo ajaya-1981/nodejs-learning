@@ -6,4 +6,9 @@ staticRouter.get("/", async(req, res) => {
     const allUrls = await URL.find({})
     return res.render("home", {urls : allUrls});
 })
+
+staticRouter.get("/signup", async(req, res) => {
+    //const allUrls = await URL.find({})
+    return res.render("signup");
+})
 module.exports = staticRouter;

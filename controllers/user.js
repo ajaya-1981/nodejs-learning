@@ -41,10 +41,31 @@ async function handleCreateUser(req, res) {
     return res.status(201).json({ message: "Success" });
 
 }
+
+//Sign Up
+async function handleSignUpUser(req,res) {
+     const body = req.body;
+    // if (!body || !body.first_name ||!body.last_name || !body.last_name || !body.email || !body.gender) {
+    //     return res.status(400).json({ msg: "all fields are required" })
+    // }
+    console.log(body);
+    
+    const user = await User.create({
+        firstName: body.firstname,
+        lastName: body.lastname,
+        password: body.password,
+        email: body.email,
+        gender: body.gender
+    })
+    return res.redirect("/");
+    // return res.status(201).json({ message: "Success" });
+};
+
 module.exports = {
     handleGetAllUsers,
     handleGetUserById,
     handleUpdateUserById,
     handleDeleteUser,
-    handleCreateUser
+    handleCreateUser,
+    handleSignUpUser,
 }
