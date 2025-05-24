@@ -11,4 +11,8 @@ staticRouter.get("/signup", async(req, res) => {
     //const allUrls = await URL.find({})
     return res.render("signup");
 })
+staticRouter.get("/login", async(req, res) => {
+    //const allUrls = await URL.find({})
+    return res.render("login");
+})
 module.exports = staticRouter;

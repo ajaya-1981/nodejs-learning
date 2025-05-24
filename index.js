@@ -8,8 +8,11 @@ const userRoutes = require('./routes/user');
 const urlRoutes = require('./routes/url');
 const staticRoutes = require('./routes/staticRouter')
 
+const cookieParser = require('cookie-parser');
+const {restrictToLoggedInUserOnly} = require('./middlewares/auth');
+
 //const users = require('./MOCK_DATA.json');
-const URL = require('./models/url');
+// const URL = require('./models/url');
 
 
 const app = express();
@@ -23,6 +26,7 @@ app.set('views', './views');   // default is ./views
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser);
 app.use(logReqRes("log.txt"));
 
 // routes
